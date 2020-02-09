@@ -13,6 +13,7 @@ import { ListArbresComponent } from './list-arbres/list-arbres.component';
 import { ArbreComponent } from './list-arbres/arbre/arbre.component';
 import { DetailArbreComponent } from './list-arbres/detail-arbre/detail-arbre.component';
 import { ModifierArbreComponent } from './list-arbres/modifier-arbre/modifier-arbre.component';
+import { Arbre } from './Models/abre.model';
 
 const appRoutes: Routes = [
   {path: '', component: ListArbresComponent},

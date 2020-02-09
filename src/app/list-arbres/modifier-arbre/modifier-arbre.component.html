@@ -4,17 +4,17 @@
       <div class="row">
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>ID</mat-label>
-            <input matInput [value]="this.arbre.id" />
+            <input matInput [(ngModel)]="this.arbre.id" />
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Essence</mat-label>
-            <input matInput [(ngModel)]="var1" />
+            <input matInput [(ngModel)]="this.arbre.essence" />
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Variete</mat-label>
-            <input matInput [(ngModel)]="var1" />
+            <input matInput [(ngModel)]="this.arbre.variete" />
           </mat-form-field>
       </div>
       <hr>
@@ -23,31 +23,31 @@
       <div class="row">
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Circonference</mat-label>
-            <input matInput type="number" class="example-right-align"/>
+            <input matInput type="number" [(ngModel)]="this.arbre.circonference" class="example-right-align"/>
             <span matSuffix> &nbsp; cm</span>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Hauteur</mat-label>
-            <input matInput type="number" class="example-right-align"/>
+            <input matInput type="number" [(ngModel)]="this.arbre.hauter" class="example-right-align"/>
             <span matSuffix>&nbsp; m</span>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Surface</mat-label>
-            <input matInput type="number" class="example-right-align"/>
+            <input matInput type="number" [(ngModel)]="this.arbre.surface" class="example-right-align"/>
             <span matSuffix>&nbsp; m <sup>2</sup></span>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Distance au batiment</mat-label>
-            <input matInput type="number" class="example-right-align"/>
+            <input matInput type="number" [(ngModel)]="this.arbre.distanceAuBati" class="example-right-align"/>
             <span matSuffix>&nbsp; m</span>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Contraintes batiment</mat-label>
-            <mat-select>
+            <mat-select [(value)]="this.arbre.contraintesBatiment">
               <mat-option value="RisqueEleve">Risque élevé</mat-option>
               <mat-option value="RisquePotentiel">Risque potentiel</mat-option>
               <mat-option value="RisqueNonEvident">Risque non évident</mat-option>
@@ -56,7 +56,7 @@
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Surplomb</mat-label>
-            <mat-select>
+            <mat-select [(value)]="this.arbre.surplomb">
               <mat-option value="RisqueEleve">Risque élevé</mat-option>
               <mat-option value="RisquePotentiel">Risque potentiel</mat-option>
               <mat-option value="RisqueNonEvident">Risque non évident</mat-option>
@@ -69,7 +69,7 @@
       <div class="row">
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Incident racine</mat-label>
-            <mat-select>
+            <mat-select [(value)]="this.arbre.incedentRacine">
               <mat-option value="invisible">Invisible</mat-option>
               <mat-option value="surTrottoir">Sur trottoir</mat-option>
               <mat-option value="surChaussee">Sur chaussée</mat-option>
@@ -81,7 +81,7 @@
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Etat physiologique</mat-label>
-            <mat-select>
+            <mat-select [(value)]="this.arbre.etatPhysiologique">
               <mat-option value="vitaliteEleve">Vitalité élevée</mat-option>
               <mat-option value="vitaliteMoyenne">Vitalité moyenne</mat-option>
               <mat-option value="deperissementMoyen">Dépérissement moyen</mat-option>
@@ -91,7 +91,7 @@
 
           <mat-form-field appearance="fill" class="col-md-4">
             <mat-label>Alignement</mat-label>
-            <input matInput [(ngModel)]="var1" />
+            <input matInput [(ngModel)]="this.arbre.alignement" />
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-6">
@@ -101,14 +101,23 @@
 
           <mat-form-field appearance="fill" class="col-md-6">
             <mat-label>Defaults mecaniques</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            <textarea matInput [(ngModel)]="this.arbre.defautsMecaniques" placeholder="Ex. It makes me feel..."></textarea>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-6">
             <mat-label>Pathogene</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            <textarea matInput [(ngModel)]="this.arbre.pathogene" placeholder="Ex. It makes me feel..."></textarea>
           </mat-form-field>
 
       </div>
+
+
   </div>
+  <div class="row" style="margin-top: 30px; margin-bottom: 40px; margin-right: auto; margin-left: auto; padding-right: 0px; width: 80%">
+      <div class="col-md-4 offset-md-8" style="width: 100%;">
+          <button mat-raised-button (click)="onClickReset()" style="margin-right: 0%;">Reset</button> &nbsp;&nbsp;
+          <button mat-raised-button (click)="onClickSave()" color="primary">Save changes</button>
+      </div>
+  </div>
+
 </div>

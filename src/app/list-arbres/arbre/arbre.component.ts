@@ -24,7 +24,7 @@ export class ArbreComponent implements OnInit {
   onClickModifier() {
       console.log(this.arbre.id);
       this.arbreService.selectedArbre.next(this.arbre);
-      this.router.navigate(['/', this.arbre.id, 'modifier']);
+      this.router.navigate(['/', this.arbre.id, 'modifier'], {state: this.arbre});
   }
 
 }

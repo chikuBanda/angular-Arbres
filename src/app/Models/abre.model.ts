@@ -17,6 +17,7 @@ export class Arbre {
     defautsMecaniques: string;
     pathogene: string;
     alignement: string;
+    surplomb: string;
 
     constructor(
       id: string,
