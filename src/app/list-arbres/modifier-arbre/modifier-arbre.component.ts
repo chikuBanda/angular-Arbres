@@ -14,20 +14,23 @@ export class ModifierArbreComponent implements OnInit {
   temp: Arbre = history.state;
   arbre: Arbre;
 
-  constructor(private arbreService: ArbreService, private activatedRoute: ActivatedRoute) {}
+  constructor(private arbreService: ArbreService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
       this.arbre = history.state;
   }
 
   onClickSave() {
-
+      this.arbreService.arbres[this.arbre.id] = this.arbre;
+      console.log(this.arbreService.arbres[this.arbre.id]);
+      //Object.keys(obj).find(key => obj[key].includes(value));
   }
 
   onClickReset() {
       //this.arbre = this.temp;
       //console.log(this.arbre);
-      console.log(history.state);
+      //console.log(history.state);
+      this.router.navigate(['']);
   }
 
 }
