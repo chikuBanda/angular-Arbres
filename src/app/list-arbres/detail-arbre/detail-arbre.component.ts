@@ -14,11 +14,11 @@ export class DetailArbreComponent implements OnInit {
   constructor(private arbreService: ArbreService, private router: Router) { }
 
   ngOnInit() {
-      this.arbreService.selectedArbre.subscribe(
+      /*this.arbreService.selectedArbre.subscribe(
         (arbre: Arbre) => {
             this.arbre = arbre;
         }
-      );
+      );*/
   }
 
 }

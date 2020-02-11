@@ -16,6 +16,7 @@ export class ListArbresComponent implements OnInit {
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
       this.arbres = this.abreService.getAbres();
+      console.log(this.abreService.arbres);
   }
 
 }

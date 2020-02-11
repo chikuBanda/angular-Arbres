@@ -17,14 +17,14 @@ export class ArbreComponent implements OnInit {
   }
 
   onClickConsulter() {
-      this.arbreService.selectedArbre.next(this.arbre);
+      //this.arbreService.selectedArbre.next(this.arbre);
       this.router.navigate(['/', this.arbre.id, 'details']);
   }
 
   onClickModifier() {
       console.log(this.arbre.id);
-      this.arbreService.selectedArbre.next(this.arbre);
-      this.router.navigate(['/', this.arbre.id, 'modifier'], {state: this.arbre});
+      //this.arbreService.selectedArbre.next(this.arbre);
+      this.router.navigate(['/', this.arbre.id, 'modifier'], {state: this.arbre, queryParams: {id: this.arbre.id}});
   }
 
 }

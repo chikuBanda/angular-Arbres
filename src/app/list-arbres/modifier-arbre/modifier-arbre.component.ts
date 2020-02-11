@@ -11,18 +11,28 @@ import { Arbre } from 'src/app/Models/abre.model';
 export class ModifierArbreComponent implements OnInit {
   var1 = 'test';
   testArbre: Arbre = new Arbre('blah', {x: 1, y: 2}, 'essence', 'variete');
-  temp: Arbre = history.state;
+  temp: Arbre;
   arbre: Arbre;
+  id: string;
 
   constructor(private arbreService: ArbreService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
       this.arbre = history.state;
+      this.temp = this.arbre;
+      this.id = this.activatedRoute.snapshot.params["id"];
+      //this.arbre = this.arbreService.
+      console.log("params"+this.activatedRoute.snapshot.params["id"]);
   }
 
   onClickSave() {
       this.arbreService.arbres[this.arbre.id] = this.arbre;
-      console.log(this.arbreService.arbres[this.arbre.id]);
+      if(this.arbre.id != this.id)
+      {
+        delete this.arbreService.arbres[this.id];
+      }
+      console.log(this.arbreService.arbres);
+      console.log(this.temp);
       //Object.keys(obj).find(key => obj[key].includes(value));
   }
 

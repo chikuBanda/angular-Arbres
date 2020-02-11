@@ -2,7 +2,7 @@ import { Arbre } from '../Models/abre.model';
 import { Subject } from 'rxjs';
 
 export class ArbreService {
-    selectedArbre = new Subject<Arbre>();
+    selectedArbre = new Subject<Arbre[]>();
     arbres = {
         id1: new Arbre('id1', {x: 2, y: 5}, 'eucalyptus', 'some variety'),
         id2: new Arbre('id2', {x: 2, y: 5}, 'eucalyptus', 'some variety'),
