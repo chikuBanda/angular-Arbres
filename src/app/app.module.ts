@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,11 +15,12 @@ import { ArbreComponent } from './list-arbres/arbre/arbre.component';
 import { DetailArbreComponent } from './list-arbres/detail-arbre/detail-arbre.component';
 import { ModifierArbreComponent } from './list-arbres/modifier-arbre/modifier-arbre.component';
 import { Arbre } from './Models/abre.model';
+import { SaveDialogComponent } from './save-dialog/save-dialog.component';
 
 const appRoutes: Routes = [
   {path: '', component: ListArbresComponent},
-  {path: ':id/details', component: DetailArbreComponent},
-  {path: ':id/modifier', component: ModifierArbreComponent}
+  {path: 'details/:id', component: DetailArbreComponent},
+  {path: 'modifier/:id', component: ModifierArbreComponent}
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     ListArbresComponent,
     ArbreComponent,
     DetailArbreComponent,
-    ModifierArbreComponent
+    ModifierArbreComponent,
+    SaveDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

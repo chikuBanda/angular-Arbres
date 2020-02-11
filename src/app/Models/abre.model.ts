@@ -1,6 +1,6 @@
-export class Arbre {
+export interface Arbre {
     id: string;
-    positionArbre: {
+    position: {
         x: number,
         y: number
     };
@@ -18,16 +18,4 @@ export class Arbre {
     pathogene: string;
     alignement: string;
     surplomb: string;
-
-    constructor(
-      id: string,
-      positionArbre: {x: number, y: number},
-      essence: string,
-      variete: string
-      ) {
-        this.id = id;
-        this.positionArbre = positionArbre;
-        this.essence = essence;
-        this.variete = variete;
-    }
 }

@@ -9,8 +9,6 @@ import { Arbre } from 'src/app/Models/abre.model';
   styleUrls: ['./modifier-arbre.component.css']
 })
 export class ModifierArbreComponent implements OnInit {
-  var1 = 'test';
-  testArbre: Arbre = new Arbre('blah', {x: 1, y: 2}, 'essence', 'variete');
   temp: Arbre;
   arbre: Arbre;
   id: string;
@@ -18,29 +16,29 @@ export class ModifierArbreComponent implements OnInit {
   constructor(private arbreService: ArbreService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-      this.arbre = history.state;
-      this.temp = this.arbre;
-      this.id = this.activatedRoute.snapshot.params["id"];
-      //this.arbre = this.arbreService.
-      console.log("params"+this.activatedRoute.snapshot.params["id"]);
+      this.id = this.activatedRoute.snapshot.params.id;
+      this.arbreService.findArbre(this.id).subscribe(
+        (arbre: Arbre) => {
+            this.arbre = arbre;
+        }
+      );
+      console.log('params: ' + this.activatedRoute.snapshot.params.id);
   }
 
   onClickSave() {
-      this.arbreService.arbres[this.arbre.id] = this.arbre;
-      if(this.arbre.id != this.id)
-      {
-        delete this.arbreService.arbres[this.id];
-      }
-      console.log(this.arbreService.arbres);
-      console.log(this.temp);
-      //Object.keys(obj).find(key => obj[key].includes(value));
+      this.arbreService.update(this.arbre).subscribe();
   }
 
   onClickReset() {
-      //this.arbre = this.temp;
-      //console.log(this.arbre);
-      //console.log(history.state);
-      this.router.navigate(['']);
+      this.arbreService.findArbre(this.arbre.id).subscribe(
+          (arbre: Arbre) => {
+              this.arbre = arbre;
+          }
+      );
+  }
+
+  onDelete() {
+      this.arbreService.delete(this.arbre.id).subscribe();
   }
 
 }

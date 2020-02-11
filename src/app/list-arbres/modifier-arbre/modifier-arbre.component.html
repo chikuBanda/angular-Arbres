@@ -96,7 +96,7 @@
 
           <mat-form-field appearance="fill" class="col-md-6">
             <mat-label>Atteintes physiologique</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            <textarea matInput [(ngModel)]="this.arbre.atteintesPhysiologique" placeholder="Ex. It makes me feel..."></textarea>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="col-md-6">
@@ -115,6 +115,7 @@
   </div>
   <div class="row" style="margin-top: 30px; margin-bottom: 40px; margin-right: auto; margin-left: auto; padding-right: 0px; width: 80%">
       <div class="col-md-4 offset-md-8" style="width: 100%;">
+          <button mat-raised-button (click)="onDelete()" color="warn">Delete Tree</button>
           <button mat-raised-button (click)="onClickReset()" style="margin-right: 0%;">Reset</button> &nbsp;&nbsp;
           <button mat-raised-button (click)="onClickSave()" color="primary">Save changes</button>
       </div>
