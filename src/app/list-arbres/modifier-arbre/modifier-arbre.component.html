@@ -1,115 +1,152 @@
 <div class="container">
   <div class="mycontainer">
-      <h4>Set 1</h4>
-      <div class="row">
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>ID</mat-label>
-            <input matInput [(ngModel)]="this.arbre.id" />
-          </mat-form-field>
+      <h2>ID de l'arbre: {{ this.arbre.id }}</h2>
+      <mat-accordion multi="true">
+          <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Informations basic
+                  </mat-panel-title>
+              </mat-expansion-panel-header>
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Essence</mat-label>
-            <input matInput [(ngModel)]="this.arbre.essence" />
-          </mat-form-field>
+              <div class="row">
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Variete</mat-label>
-            <input matInput [(ngModel)]="this.arbre.variete" />
-          </mat-form-field>
-      </div>
-      <hr>
+                  <mat-form-field appearance="fill" class="col-md-6">
+                    <mat-label>Essence</mat-label>
+                    <input matInput [(ngModel)]="this.arbre.essence" />
+                  </mat-form-field>
 
-      <h4>Set 2</h4>
-      <div class="row">
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Circonference</mat-label>
-            <input matInput type="number" [(ngModel)]="this.arbre.circonference" class="example-right-align"/>
-            <span matSuffix> &nbsp; cm</span>
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-6">
+                    <mat-label>Variete</mat-label>
+                    <input matInput [(ngModel)]="this.arbre.variete" />
+                  </mat-form-field>
+            </div>
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Hauteur</mat-label>
-            <input matInput type="number" [(ngModel)]="this.arbre.hauter" class="example-right-align"/>
-            <span matSuffix>&nbsp; m</span>
-          </mat-form-field>
+            <p>Position: </p>
+            <div class="row">
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Surface</mat-label>
-            <input matInput type="number" [(ngModel)]="this.arbre.surface" class="example-right-align"/>
-            <span matSuffix>&nbsp; m <sup>2</sup></span>
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-6">
+                      <mat-label>X</mat-label>
+                      <input matInput type="number" [(ngModel)]="this.arbre.position.x"/>
+                  </mat-form-field>
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Distance au batiment</mat-label>
-            <input matInput type="number" [(ngModel)]="this.arbre.distanceAuBati" class="example-right-align"/>
-            <span matSuffix>&nbsp; m</span>
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-6">
+                      <mat-label>Y</mat-label>
+                      <input matInput type="number" [(ngModel)]="this.arbre.position.y"/>
+                  </mat-form-field>
+              </div>
+          </mat-expansion-panel>
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Contraintes batiment</mat-label>
-            <mat-select [(value)]="this.arbre.contraintesBatiment">
-              <mat-option value="RisqueEleve">Risque élevé</mat-option>
-              <mat-option value="RisquePotentiel">Risque potentiel</mat-option>
-              <mat-option value="RisqueNonEvident">Risque non évident</mat-option>
-            </mat-select>
-          </mat-form-field>
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Surplomb</mat-label>
-            <mat-select [(value)]="this.arbre.surplomb">
-              <mat-option value="RisqueEleve">Risque élevé</mat-option>
-              <mat-option value="RisquePotentiel">Risque potentiel</mat-option>
-              <mat-option value="RisqueNonEvident">Risque non évident</mat-option>
-            </mat-select>
-          </mat-form-field>
-      </div>
-      <hr>
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Informations phisiques
+                  </mat-panel-title>
+              </mat-expansion-panel-header>
 
-      <h4>Set 3</h4>
-      <div class="row">
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Incident racine</mat-label>
-            <mat-select [(value)]="this.arbre.incedentRacine">
-              <mat-option value="invisible">Invisible</mat-option>
-              <mat-option value="surTrottoir">Sur trottoir</mat-option>
-              <mat-option value="surChaussee">Sur chaussée</mat-option>
-              <mat-option value="surMur">Sur mur</mat-option>
-              <mat-option value="surBatiment">Sur bâtiment</mat-option>
-              <mat-option value="Autres">Autres</mat-option>
-            </mat-select>
-          </mat-form-field>
+              <div class="row">
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Circonference</mat-label>
+                    <input matInput type="number" [(ngModel)]="this.arbre.circonference" class="example-right-align"/>
+                    <span matSuffix> &nbsp; cm</span>
+                  </mat-form-field>
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Etat physiologique</mat-label>
-            <mat-select [(value)]="this.arbre.etatPhysiologique">
-              <mat-option value="vitaliteEleve">Vitalité élevée</mat-option>
-              <mat-option value="vitaliteMoyenne">Vitalité moyenne</mat-option>
-              <mat-option value="deperissementMoyen">Dépérissement moyen</mat-option>
-              <mat-option value="Dépérissement avancé">deperissementAvance</mat-option>
-            </mat-select>
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Hauteur</mat-label>
+                    <input matInput type="number" [(ngModel)]="this.arbre.hauter" class="example-right-align"/>
+                    <span matSuffix>&nbsp; m</span>
+                  </mat-form-field>
 
-          <mat-form-field appearance="fill" class="col-md-4">
-            <mat-label>Alignement</mat-label>
-            <input matInput [(ngModel)]="this.arbre.alignement" />
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Surface</mat-label>
+                    <input matInput type="number" [(ngModel)]="this.arbre.surface" class="example-right-align"/>
+                    <span matSuffix>&nbsp; m <sup>2</sup></span>
+                  </mat-form-field>
 
-          <mat-form-field appearance="fill" class="col-md-6">
-            <mat-label>Atteintes physiologique</mat-label>
-            <textarea matInput [(ngModel)]="this.arbre.atteintesPhysiologique" placeholder="Ex. It makes me feel..."></textarea>
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Distance au batiment</mat-label>
+                    <input matInput type="number" [(ngModel)]="this.arbre.distanceAuBati" class="example-right-align"/>
+                    <span matSuffix>&nbsp; m</span>
+                  </mat-form-field>
 
-          <mat-form-field appearance="fill" class="col-md-6">
-            <mat-label>Defaults mecaniques</mat-label>
-            <textarea matInput [(ngModel)]="this.arbre.defautsMecaniques" placeholder="Ex. It makes me feel..."></textarea>
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Contraintes batiment</mat-label>
+                    <mat-select [(value)]="this.arbre.contraintesBatiment">
+                      <mat-option value="RisqueEleve">Risque élevé</mat-option>
+                      <mat-option value="RisquePotentiel">Risque potentiel</mat-option>
+                      <mat-option value="RisqueNonEvident">Risque non évident</mat-option>
+                    </mat-select>
+                  </mat-form-field>
 
-          <mat-form-field appearance="fill" class="col-md-6">
-            <mat-label>Pathogene</mat-label>
-            <textarea matInput [(ngModel)]="this.arbre.pathogene" placeholder="Ex. It makes me feel..."></textarea>
-          </mat-form-field>
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Surplomb</mat-label>
+                    <mat-select [(value)]="this.arbre.surplomb">
+                      <mat-option value="RisqueEleve">Risque élevé</mat-option>
+                      <mat-option value="RisquePotentiel">Risque potentiel</mat-option>
+                      <mat-option value="RisqueNonEvident">Risque non évident</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </div>
 
-      </div>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Etat de l'arbre
+                  </mat-panel-title>
+              </mat-expansion-panel-header>
+
+
+              <div class="row">
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Incident racine</mat-label>
+                    <mat-select [(value)]="this.arbre.incedentRacine">
+                      <mat-option value="invisible">Invisible</mat-option>
+                      <mat-option value="surTrottoir">Sur trottoir</mat-option>
+                      <mat-option value="surChaussee">Sur chaussée</mat-option>
+                      <mat-option value="surMur">Sur mur</mat-option>
+                      <mat-option value="surBatiment">Sur bâtiment</mat-option>
+                      <mat-option value="Autres">Autres</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Etat physiologique</mat-label>
+                    <mat-select [(value)]="this.arbre.etatPhysiologique">
+                      <mat-option value="vitaliteEleve">Vitalité élevée</mat-option>
+                      <mat-option value="vitaliteMoyenne">Vitalité moyenne</mat-option>
+                      <mat-option value="deperissementMoyen">Dépérissement moyen</mat-option>
+                      <mat-option value="Dépérissement avancé">deperissementAvance</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="col-md-4">
+                    <mat-label>Alignement</mat-label>
+                    <input matInput [(ngModel)]="this.arbre.alignement" />
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="col-md-6">
+                    <mat-label>Atteintes physiologique</mat-label>
+                    <textarea matInput [(ngModel)]="this.arbre.atteintesPhysiologique" placeholder="Ex. It makes me feel..."></textarea>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="col-md-6">
+                    <mat-label>Defaults mecaniques</mat-label>
+                    <textarea matInput [(ngModel)]="this.arbre.defautsMecaniques" placeholder="Ex. It makes me feel..."></textarea>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill" class="col-md-6">
+                    <mat-label>Pathogene</mat-label>
+                    <textarea matInput [(ngModel)]="this.arbre.pathogene" placeholder="Ex. It makes me feel..."></textarea>
+                  </mat-form-field>
+
+              </div>
+
+          </mat-expansion-panel>
+      </mat-accordion>
 
 
   </div>
@@ -121,4 +158,5 @@
       </div>
   </div>
 
+  <input type="file" (change)="onFileSelected($event)">
 </div>

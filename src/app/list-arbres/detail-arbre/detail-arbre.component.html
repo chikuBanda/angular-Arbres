@@ -1,8 +1,9 @@
 <div class="container">
     <div class="head-section">
-        <h2 id="id_header">HELN1 |&nbsp;</h2>
-        <span class="h3">Essence, </span>
-        <span class="h4">Variete</span>
+        <h2 id="id_header">{{this.arbre.id}} |&nbsp;</h2>
+        <span class="h3">{{this.arbre.essence}}, </span>
+        <span class="h4">{{this.arbre.variete}}</span>
+        <button type="button" mat-stroked-button color="primary" name="button" style="float: right;" (click)="onClickEdit()">Edit Tree</button>
     </div>
 
     <hr>
@@ -12,16 +13,12 @@
           <div id="carouselExampleControls" class="carousel carousel-fade slide" data-ride="carousel">
             <div class="carousel-inner">
 
-              <div class="carousel-item active">
-                <img src="https://www.publicdomainpictures.net/pictures/300000/velka/abstract-wallpaper-15572324177B2.jpg" class="d-block w-100" alt="...">
-              </div>
-
-              <div class="carousel-item">
-                <img src="../../../assets/pexels-photo-851555.jpeg" class="d-block w-100" alt="...">
-              </div>
-
-              <div class="carousel-item">
-                <img src="https://www.publicdomainpictures.net/pictures/300000/velka/abstract-wallpaper-15572324177B2.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-item" *ngFor="let photoLink of this.arbre.photos; let index = index" [ngClass]="{'active': index == 0}">
+                <img
+                    [src]="photoLink"
+                    class="d-block w-100"
+                    alt="..."
+                    >
               </div>
 
             </div>
@@ -47,63 +44,63 @@
                     <p>Position:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>(5454, -5454)</p>
+                    <p>( {{this.arbre.position.x}}, {{this.arbre.position.y}})</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Circonference:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>2.5 meters</p>
+                    <p>{{this.arbre.circonference}} meters</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Hauteur:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>2.5 meters</p>
+                    <p>{{this.arbre.hauter}} meters</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Surface:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>2.5 meters squared</p>
+                    <p>{{this.arbre.surface}} meters squared</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Distance au batiment:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>2.5 meters</p>
+                    <p>{{this.arbre.distanceAuBati}} meters</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Contraintes batiment:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>Risque eleve</p>
+                    <p>{{this.arbre.contraintesBatiment}}</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Incedent racine:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>Invisible</p>
+                    <p>{{this.arbre.incedentRacine}}</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Etat physiologique:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>Vitalite</p>
+                    <p>{{this.arbre.etatPhysiologique}}</p>
                 </div>
 
                 <div class="col-md-6">
                     <p>Alignement:</p>
                 </div>
                 <div class="col-md-6">
-                    <p>2.5 meters</p>
+                    <p>{{this.arbre.alignement}} meters</p>
                 </div>
 
 
@@ -117,36 +114,21 @@
           <section>
             <h4>Atteintes physiologique:</h4>
             <p>
-                Lorem ipsum dolor sit amet
-                consectetur adipisicing elit.
-                Quia ea quaerat natus mollitia
-                molestiae corrupti expedita, quo,
-                perferendis est pariatur amet!
-                Quia possimus dicta aut commodi neque id temporibus nesciunt.
+                {{this.arbre.atteintesPhysiologique}}
             </p>
           </section>
 
           <section>
             <h4>Defaults mecaniques:</h4>
             <p>
-                Lorem ipsum dolor sit amet
-                consectetur adipisicing elit.
-                Quia ea quaerat natus mollitia
-                molestiae corrupti expedita, quo,
-                perferendis est pariatur amet!
-                Quia possimus dicta aut commodi neque id temporibus nesciunt.
+                {{this.arbre.defautsMecaniques}}
             </p>
           </section>
 
           <section>
             <h4>Pathogene:</h4>
             <p>
-                Lorem ipsum dolor sit amet
-                consectetur adipisicing elit.
-                Quia ea quaerat natus mollitia
-                molestiae corrupti expedita, quo,
-                perferendis est pariatur amet!
-                Quia possimus dicta aut commodi neque id temporibus nesciunt.
+                {{this.arbre.pathogene}}
             </p>
           </section>
 

@@ -1,10 +1,21 @@
 <div class="container">
-  <div class="row">
-      <app-arbre
-        *ngFor="let arbre of arbres"
-        [arbre]='arbre'
-      ></app-arbre>
-  </div>
+  <button class=".btn btn-primary"type="button" name="button" (click)="onClickNouveaArbre()">Nouveau Arbre</button>
+
+  <mat-tab-group>
+      <mat-tab label="First">
+          <div class="row">
+              <app-arbre
+                *ngFor="let arbre of arbres"
+                [arbre]='arbre'
+              ></app-arbre>
+          </div>
+      </mat-tab>
+
+      <mat-tab label="Second">
+        
+      </mat-tab>
+  </mat-tab-group>
+
 </div>
 
 <!-- <app-modifier-arbre></app-modifier-arbre> -->

@@ -9,6 +9,6 @@ import { ArbreService } from './list-arbres/arbre.service';
 export class AppComponent {
   title = 'myProject';
 
-  constructor(private arbreService: ArbreService) {}
+  constructor() {}
 
 }

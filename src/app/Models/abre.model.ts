@@ -1,4 +1,4 @@
-export interface Arbre {
+export class Arbre {
     id: string;
     position: {
         x: number,
@@ -18,4 +18,26 @@ export interface Arbre {
     pathogene: string;
     alignement: string;
     surplomb: string;
+    photos: string[];
+
+    constructor(){
+      this.id = "";
+      this.essence = "";
+      this.variete = "";
+      this.alignement = "";
+      this.circonference = 0;
+      this.atteintesPhysiologique = "none";
+      this.contraintesBatiment = "";
+      this.defautsMecaniques = "none";
+      this.distanceAuBati = 0;
+      this.etatPhysiologique = "";
+      this.hauter = 0;
+      this.incedentRacine = "";
+      this.position = {x: 0, y: 0};
+      this.pathogene = "none";
+      this.photos = [
+        'https://www.publicdomainpictures.net/pictures/300000/velka/abstract-wallpaper-15572324177B2.jpg',
+        '../../../assets/pexels-photo-851555.jpeg'
+      ];
+    }
 }
