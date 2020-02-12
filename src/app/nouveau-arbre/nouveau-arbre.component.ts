@@ -37,4 +37,23 @@ export class NouveauArbreComponent implements OnInit {
       this.arbreService.add(this.arbre).subscribe();
       this.router.navigate(['']);
   }
+
+  onFileSelected(event){
+    console.log(event.target.files[0].name);
+    this.arbre.photos.push('../../../assets/' + event.target.files[0].name);
+    for(let i = 0; i < this.arbre.photos.length; i++){
+        if(this.arbre.photos[i] == "../../../assets/placeholder.png"){
+            this.arbre.photos.splice(i, 1);
+        }
+    }
+    console.log(this.arbre);
+  }
+
+  onClickRemovePhoto(event, photoLink){
+    this.arbre.photos.splice(this.arbre.photos.indexOf(photoLink), 1);
+    if(this.arbre.photos.length == 0){
+        this.arbre.photos.push('../../../assets/placeholder.png');
+    }
+  }
+
 }

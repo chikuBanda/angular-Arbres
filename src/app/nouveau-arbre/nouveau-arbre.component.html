@@ -1,7 +1,12 @@
 <div class="container">
   <div class="mycontainer">
 
-    <h2>ID de l'arbre: {{ this.arbre.id }}</h2>
+    <div class="head-section">
+        <h2 id="id_header">Nouveau Arbre</h2>
+    </div>
+
+    <hr>
+
     <mat-accordion multi="true">
         <mat-expansion-panel [expanded]="true">
             <mat-expansion-panel-header>
@@ -147,16 +152,50 @@
             </div>
 
         </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Photos
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <input
+                type="file"
+                style="display: none"
+                (change)="onFileSelected($event)"
+                #fileInput
+                >
+            <button mat-fab
+                color="primary"
+                style="float: right; margin-bottom: 15px;"
+                (click)="fileInput.click()">Add</button>
+
+
+            <div class="row">
+                <div class="col-md-3"
+                    *ngFor="let photoLink of this.arbre.photos"
+                    >
+                    <img [src]="photoLink" class="d-block w-100" alt="" *ngIf="photoLink != '../../../assets/placeholder.png'">
+                    <button mat-button color="warn" (click)="onClickRemovePhoto($event, photoLink)" *ngIf="photoLink != '../../../assets/placeholder.png'">remove</button>
+                </div>
+            </div>
+
+        </mat-expansion-panel>
+
     </mat-accordion>
 
 
 
   </div>
 
-  <div class="row" style="margin-top: 30px; margin-bottom: 40px; margin-right: auto; margin-left: auto; padding-right: 0px; width: 80%">
-      <div class="col-md-4 offset-md-8" style="width: 100%;">
-          <button mat-raised-button (click)="onClickCancel()" style="margin-right: 0%;">Cancel</button> &nbsp;&nbsp;
-          <button mat-raised-button (click)="onClickSave()" color="primary">Save changes</button>
+  <div class="row" style="margin-top: 30px; margin-bottom: 40px; margin-right: auto; margin-left: auto; padding-right: 0px;">
+      <div class="col-2 col-md-2">
+          <button mat-raised-button (click)="onClickCancel()" style="margin-left: auto; margin-right: auto">Reset</button>
+      </div>
+
+      <div class="col-4 offset-6 col-md-2 offset-md-8">
+          <button mat-raised-button (click)="onClickSave()" color="primary" style="margin-left: 5px;">Save changes</button>
       </div>
   </div>
 

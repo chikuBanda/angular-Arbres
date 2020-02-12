@@ -36,8 +36,7 @@ export class Arbre {
       this.position = {x: 0, y: 0};
       this.pathogene = "none";
       this.photos = [
-        'https://www.publicdomainpictures.net/pictures/300000/velka/abstract-wallpaper-15572324177B2.jpg',
-        '../../../assets/pexels-photo-851555.jpeg'
+        '../../../assets/placeholder.png'
       ];
     }
 }

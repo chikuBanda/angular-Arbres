@@ -13,6 +13,7 @@ export class ModifierArbreComponent implements OnInit {
   temp: Arbre;
   arbre: Arbre;
   id: string;
+  hidePhotos = false;
 
   constructor(
     private arbreService: ArbreService,
@@ -62,9 +63,27 @@ export class ModifierArbreComponent implements OnInit {
   }
 
   onFileSelected(event){
-    console.log(event);
+    console.log(event.target.files[0].name);
+    this.arbre.photos.push('../../../assets/' + event.target.files[0].name);
+    for(let i = 0; i < this.arbre.photos.length; i++){
+        if(this.arbre.photos[i] == "../../../assets/placeholder.png"){
+            this.arbre.photos.splice(i, 1);
+            this.hidePhotos = false;
+        }
+    }
+    console.log(this.arbre);
   }
+
+  onClickRemovePhoto(event, photoLink){
+    this.arbre.photos.splice(this.arbre.photos.indexOf(photoLink), 1);
+    if(this.arbre.photos.length == 0){
+        this.arbre.photos.push('../../../assets/placeholder.png');
+        this.hidePhotos = true;
+    }
+  }
+
 }
+
 
 @Component({
   selector: 'app-save-dialog',
